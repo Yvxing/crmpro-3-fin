@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+    <!--扫描service所在的包-->
+    <context:component-scan base-package="com.ujiuye.service"></context:component-scan>
+
+
+    <bean id="javaMailSenderImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <!--qq的服务器-->
+        <property name="host" value="smtp.qq.com"></property>
+        <!--qq账号-->
+        <property name="username" value="447420902@qq.com"></property>
+        <!--允许第三方登录的授权码-->
+        <property name="password" value="foivsafxdjrwbghf"></property>
+        <property name="defaultEncoding" value="utf-8"></property>
+        <property name="javaMailProperties">
+            <props>
+                <!--是否支持邮箱验证-->
+                <prop key="mail.smtp.auth">true</prop>
+                <!--连接服务器的超时时间-->
+                <prop key="mail.smtp.timeout">30000</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
